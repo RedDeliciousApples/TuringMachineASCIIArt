@@ -89,6 +89,10 @@ def arrow(pos: int):
 
 # Format: If at (state, symbol), do (new_state, new_symbol, move)
 # Our symbols are ints, but could be anything
+
+#########################################################################################################################
+###################### YOU MAY SAFELY EDIT VARIABLES AND FUNCTION ARGUMENTS BELOW THIS BLOCK ############################
+#########################################################################################################################
 states = {
     ('s0', 1): ('s0', 0, 'Right'),
     ('s0', 0): ('s1', 1, 'Right'),
@@ -100,6 +104,10 @@ states = {
 initial_tape = [0, 1, 1, 0, 0, 1, 1, 0, 0, 1, 1, 0, 1]
 
 if __name__ == "__main__":
+
+
     machine = TuringMachine(initial_tape, 's2', states, 0, "s1")
+
+
     print(machine.greet())
     machine.run()
