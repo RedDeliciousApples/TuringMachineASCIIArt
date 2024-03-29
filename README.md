@@ -1,6 +1,6 @@
 ## What's this?
 
-A simple Python script which simulates a [Turing machine](https://en.wikipedia.org/wiki/Turing_machine), and provides some nice* ASCII art to show the state of the machine.
+A simple Python script which simulates a [Turing machine](https://en.wikipedia.org/wiki/Turing_machine), and provides some nice* ASCII art to show the state of the machine. This project was built so I could get some experience making a Turing machine. Hopefully you'll find it useful.
 
 *I think the art is nice. Hopefully you do too.
 
