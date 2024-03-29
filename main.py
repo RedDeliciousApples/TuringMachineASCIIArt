@@ -15,20 +15,26 @@ class TuringMachine:
                 f" at index {self.pos}\n to reach state {self.end_state}.\n")
 
     def step(self) -> bool:
+
         current_symbol = self.tape[self.pos]
+
         if (self.state, current_symbol) in self.state_table:
 
             old_state = self.state
 
             new_state, new_symbol, move = self.state_table[(self.state, current_symbol)]
             self.tape[self.pos] = new_symbol
+
             if move == 'Right':
                 self.pos += 1
             elif move == 'Left':
                 self.pos -= 1
+
             self.state = new_state
             print(f"The symbol {current_symbol} at index {self.pos - 1} was updated to a new symbol: {new_symbol}. The machine swicthed from state {old_state} to {new_state}. The tape head moved {move.lower()}.")
+
             art(self.tape, self.pos)
+
             return True
         else:
             return False
@@ -51,10 +57,13 @@ def art(tape: List[int], pos: int):
     # Note: there are 5 spaces
 
     print("     |     |" * (tape_length - 1))
+
     for i in range(1, tape_length):
         print(f"     |  {tape[i]}  |", end="")
+
     # empty print statement for 1 newline
     print("")
+
     print("     |     |" * (tape_length - 1))
 
     print("-" * (tape_length * 11))
@@ -67,6 +76,7 @@ def arrow(pos: int):
     # for simplicity, we use an offset of 6 spaces
     # 12 spaces between centers of each cell
     offset: str = "      " + ((" " * 12) * pos)
+
     # This adds 2 spaces
     print(f"{offset + '  '}.   ")
     print(f"{offset}.:;:. ")
@@ -86,10 +96,10 @@ states = {
     ('s1', 0): ('s0', 1, 'Right'),
     ('s1', 1): ('s1', 0, 'Right'),
 }
+
 initial_tape = [0, 1, 1, 0, 0, 1, 1, 0, 0, 1, 1, 0, 1]
 
 if __name__ == "__main__":
     machine = TuringMachine(initial_tape, 's2', states, 0, "s1")
-    #art(initial_tape, 4)
     print(machine.greet())
     machine.run()
