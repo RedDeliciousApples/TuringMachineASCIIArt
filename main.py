@@ -45,12 +45,12 @@ def art(tape: List[int], pos: int):
 
     # Note: there are 5 spaces
 
-    print("     |     |" * tape_length)
+    print("     |     |" * (tape_length - 1))
     for i in range(pos, tape_length):
         print(f"     |  {tape[i]}  |", end="")
     # empty print statement for 1 newline
     print("")
-    print("     |     |" * tape_length)
+    print("     |     |" * (tape_length - 1))
 
     print("-" * (tape_length * 12))
 
