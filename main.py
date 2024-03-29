@@ -41,7 +41,7 @@ class TuringMachine:
 def art(tape: List[int], pos: int):
     tape_length = len(tape)
 
-    print("-" * (tape_length * 10))
+    print("-" * (tape_length * 12))
 
     # Note: there are 5 spaces
 
@@ -52,7 +52,7 @@ def art(tape: List[int], pos: int):
     print("")
     print("     |     |" * tape_length)
 
-    print("-" * (tape_length * 10))
+    print("-" * (tape_length * 12))
 
     arrow(0)
 
