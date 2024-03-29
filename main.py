@@ -31,7 +31,8 @@ class TuringMachine:
                 self.pos -= 1
 
             self.state = new_state
-            print(f"The symbol {current_symbol} at index {self.pos - 1} was updated to a new symbol: {new_symbol}. The machine swicthed from state {old_state} to {new_state}. The tape head moved {move.lower()}.")
+            print(f"The symbol {current_symbol} at index {self.pos - 1} was updated to a new symbol: {new_symbol}. "
+                  f"The machine switched from state {old_state} to {new_state}. The tape head moved {move.lower()}.")
 
             art(self.tape, self.pos)
 
@@ -104,10 +105,7 @@ states = {
 initial_tape = [0, 1, 1, 0, 0, 1, 1, 0, 0, 1, 1, 0, 1]
 
 if __name__ == "__main__":
-
-
     machine = TuringMachine(initial_tape, 's2', states, 0, "s1")
-
 
     print(machine.greet())
     machine.run()

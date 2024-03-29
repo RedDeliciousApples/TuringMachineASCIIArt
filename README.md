@@ -21,13 +21,13 @@ states = {
 initial_tape = [0, 1, 1, 0, 0, 1, 1, 0, 0, 1, 1, 0, 1]
 
 if __name__ == "__main__":
-
-
-machine = TuringMachine(initial_tape, 's2', states, 0, "s1")
-
-
-print(machine.greet())
-machine.run()
+    
+    
+    machine = TuringMachine(initial_tape, 's2', states, 0, "s1")
+    
+    
+    print(machine.greet())
+    machine.run()
 ```
 
 You can edit any of the variables there, provided that:
