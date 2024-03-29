@@ -24,6 +24,7 @@ class TuringMachine:
             elif move == 'L':
                 self.pos -= 1
             self.state = new_state
+            print(f"The symbol {current_symbol} at position {self.pos} was updated to a new symbol: {new_symbol}. The machine swicthed from state {self.state} to {new_state}. The tape head moved {move}.")
             return True
         else:
             return False
@@ -41,7 +42,7 @@ class TuringMachine:
 def art(tape: List[int], pos: int):
     tape_length = len(tape)
 
-    print("-" * (tape_length * 12))
+    print("-" * (tape_length * 11))
 
     # Note: there are 5 spaces
 
@@ -52,9 +53,9 @@ def art(tape: List[int], pos: int):
     print("")
     print("     |     |" * (tape_length - 1))
 
-    print("-" * (tape_length * 12))
+    print("-" * (tape_length * 11))
 
-    arrow(0)
+    arrow(pos)
 
 
 def arrow(pos: int):
@@ -84,6 +85,6 @@ initial_tape = [0, 1, 1, 0, 0, 1, 1, 0, 0, 1, 1, 0, 1]
 
 if __name__ == "__main__":
     machine = TuringMachine(initial_tape, 's0', states, 0, "s1")
-    art(initial_tape, 1)
+    art(initial_tape, 4)
     print(machine.greet())
     machine.run()
