@@ -17,6 +17,7 @@ class TuringMachine:
     def step(self) -> bool:
         current_symbol = self.tape[self.pos]
         if (self.state, current_symbol) in self.state_table:
+            old_state = self.state
             new_state, new_symbol, move = self.state_table[(self.state, current_symbol)]
             self.tape[self.pos] = new_symbol
             if move == 'R':
@@ -24,7 +25,7 @@ class TuringMachine:
             elif move == 'L':
                 self.pos -= 1
             self.state = new_state
-            print(f"The symbol {current_symbol} at index {self.pos - 1} was updated to a new symbol: {new_symbol}. The machine swicthed from state {self.state} to {new_state}. The tape head moved {move}.")
+            print(f"The symbol {current_symbol} at index {self.pos - 1} was updated to a new symbol: {new_symbol}. The machine swicthed from state {old_state} to {new_state}. The tape head moved {move}.")
             art(self.tape, self.pos)
             return True
         else:
@@ -74,19 +75,19 @@ def arrow(pos: int):
     print(f"{offset};;;;;")
 
 
-# Format: {If at (state, symbol), do (new_state, new_symbol, move)
+# Format: If at (state, symbol), do (new_state, new_symbol, move)
 # Our symbols are ints, but could be anything
 states = {
     ('s0', 1): ('s0', 0, 'R'),
     ('s0', 0): ('s1', 1, 'R'),
-    ('s2', 0): ('s1', 1, 'L'),
+    ('s2', 0): ('s1', 1, 'R'),
     ('s1', 0): ('s0', 1, 'R'),
     ('s1', 1): ('s1', 0, 'R'),
 }
 initial_tape = [0, 1, 1, 0, 0, 1, 1, 0, 0, 1, 1, 0, 1]
 
 if __name__ == "__main__":
-    machine = TuringMachine(initial_tape, 's0', states, 0, "s1")
+    machine = TuringMachine(initial_tape, 's2', states, 0, "s1")
     #art(initial_tape, 4)
     print(machine.greet())
     machine.run()
